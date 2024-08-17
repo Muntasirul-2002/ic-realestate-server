@@ -1,11 +1,12 @@
 import { Router } from "express";
 import {
   deleteAdmin,
-  forgotPassword,
+
   getAdminDetails,
   getSingleAdminDetails,
   loginController,
   signupController,
+  updateAdminProfile,
 } from "../controller/auth/loginController.js";
 import { requireSignIn, isAdmin } from "../middleware/authMiddleware.js";
 const authRoute = Router();
@@ -27,10 +28,7 @@ authRoute.get("/admin-details/:id", getSingleAdminDetails);
 //delete admin
 authRoute.delete("/delete-admin/:id", deleteAdmin);
 
-//forgot password
-authRoute.get("/forgot-password", forgotPassword);
-
-//TODO: update admin
 //update admin
+authRoute.put('/profile',requireSignIn, updateAdminProfile, )
 
 export default authRoute;

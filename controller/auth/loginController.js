@@ -157,13 +157,37 @@ export const deleteAdmin = async (req, res) => {
 };
 
 
-//forgot password
-
-//TODO: forgot password implementation
-export const forgotPassword = async (req,res)=>{
-    try {
-        
-    } catch (error) {
-        
+export const updateAdminProfile = async(req,res)=>{
+  try {
+    const {name,mobile,password,address} = req.body
+    const user = await userModel.findById(req.user._id);
+    if(password && password.length < 4){
+      return res.json({error:"Password too short"})
     }
+
+    const hashedPassword = password ? await hashPassword(password) : undefined;
+    const updatedUser = await userModel.findByIdAndUpdate(
+      req.user._id,
+      {
+        name: name || user.name,
+        mobile: mobile || user.mobile,
+        password: hashedPassword || user.password,
+        address: address || user.address
+
+      },
+      {new:true}
+    )
+    res.status(200).send({
+      success:true,
+      message: "Your details has been updated",
+      updatedUser
+    })
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({
+      success: false,
+      message: "Error WHile Update profile",
+      error,
+    });
+  }
 }
