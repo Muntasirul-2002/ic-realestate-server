@@ -57,6 +57,7 @@ app.get("/", (req, res) => {
 // Routers
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/property", propertyRoute);
+app.use("/image", express.static(path.join(__dirname, "uploads")));
 
 // Start the Server
 app.listen(port, () => {
