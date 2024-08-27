@@ -11,6 +11,9 @@ export const addPropertyController = async (req, res) => {
       bedrooms,
       bathrooms,
       price,
+      featured,
+      location,
+      landmark
     } = req.body;
 
     // Extract image filenames from the uploaded files
@@ -31,6 +34,9 @@ export const addPropertyController = async (req, res) => {
       price,
       images,
       slug,
+      featured: featured.split(','), 
+      location,
+      landmark
     });
 
     // Save the new property to the database
