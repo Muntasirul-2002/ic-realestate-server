@@ -10,6 +10,7 @@ import {
   updatePropertyController,
   viewPropertyController,
   viewSinglePropertyController,
+  relatedPropertiesController
 } from "../controller/property/propertyController.js";
 
 // Get the directory name in ES modules
@@ -62,4 +63,6 @@ propertyRoute.put(
 // Search properties
 propertyRoute.get("/search/:keyword", searchFilterController);
 
+//related properties
+propertyRoute.get("/related/:pid/:keyword", relatedPropertiesController)
 export default propertyRoute;

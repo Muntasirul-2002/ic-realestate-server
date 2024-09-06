@@ -123,7 +123,7 @@ export const deletePropertyController = async (req, res) => {
   }
 };
 
-//TODO: api check it pending
+
 export const updatePropertyController = async (req, res) => {
   try {
     const propertyId = req.params.id;
@@ -207,3 +207,26 @@ export const searchFilterController = async (req, res) => {
     });
   }
 };
+
+
+//related Properties Controller
+export const relatedPropertiesController =async(req,res) =>{
+try {
+  const {pid} = req.params;
+  const properties = await propertyModel.find({
+    keyword:type,
+    _id:{$ne:pid},
+  }).limit(4)
+  res.status(200).send({
+    success:true,
+    properties,
+  })
+} catch (error) {
+  console.log(error);
+    res.status(400).send({
+      success: false,
+      message: "Error in search product api",
+      error,
+    });
+}
+}
