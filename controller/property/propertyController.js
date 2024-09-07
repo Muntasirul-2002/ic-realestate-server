@@ -212,7 +212,7 @@ export const searchFilterController = async (req, res) => {
 //related Properties Controller
 export const relatedPropertiesController =async(req,res) =>{
 try {
-  const {pid} = req.params;
+  const {pid, type} = req.params;
   const properties = await propertyModel.find({
     keyword:type,
     _id:{$ne:pid},
