@@ -20,6 +20,9 @@ const allowOrigin = [
     "https://ic-realestate-server.onrender.com/",
     "https://ic-realestate-server.onrender.com",
     "http://ic-realestate-server.onrender.com/",
+    "https://ic-realestate.vercel.app/",
+    "https://ic-realestate.vercel.app",
+    "http://ic-realestate.vercel.app/",
     undefined,
 ]
 const corsOptions = {
