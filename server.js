@@ -17,6 +17,9 @@ const allowOrigin = [
     "http://localhost:8080",
     "http://localhost:5173",
     "http://localhost:5174",
+    "https://ic-realestate-server.onrender.com/",
+    "https://ic-realestate-server.onrender.com",
+    "http://ic-realestate-server.onrender.com/",
     undefined,
 ]
 const corsOptions = {
