@@ -25,6 +25,11 @@ authRoute.get("/admin-details", getAdminDetails);
 //get single admin details using id
 authRoute.get("/admin-details/:id", getSingleAdminDetails);
 
+//admin authentication
+authRoute.get('/admin-auth', requireSignIn,isAdmin,(req,res)=>{
+  res.status(200).send({ ok: true });
+})
+
 //delete admin
 authRoute.delete("/delete-admin/:id", deleteAdmin);
 

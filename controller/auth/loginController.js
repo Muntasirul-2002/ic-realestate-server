@@ -101,10 +101,12 @@ export const loginController = async (req, res) => {
 export const getAdminDetails = async (req, res) => {
   try {
     const getAdmin = await userModel.find({ role: "admin" });
+    const getAdminCount = await userModel.countDocuments()
     res.status(200).send({
       success: true,
       message: "Fetch all admin details",
       getAdmin,
+      getAdminCount
     });
   } catch (error) {
     console.log(error);

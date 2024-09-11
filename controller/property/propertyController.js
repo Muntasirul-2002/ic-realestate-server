@@ -65,6 +65,7 @@ export const viewPropertyController = async (req, res) => {
     const propertyPerPage = 8;
     // Counts the total number of documents in the propertyModel collection, which will help in calculating the total number of pages on the frontend.
     const totalProperties = await propertyModel.countDocuments();
+
     // Get the paginated properties
     const viewProperty = await propertyModel
       .find()
@@ -181,7 +182,7 @@ export const updatePropertyController = async (req, res) => {
   }
 };
 
-//TODO: update controller api testing pending
+
 
 //search for properties
 export const searchFilterController = async (req, res) => {
@@ -230,3 +231,4 @@ try {
     });
 }
 }
+
